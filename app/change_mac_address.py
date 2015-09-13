@@ -10,15 +10,18 @@ def set_wifi(network_interface, status):
     if status in ['up', 'down']:
         call(['sudo', 'ip', 'link', 'set', 'dev', network_interface, status])
 
+
 def dec_to_hex(n):
     """Takes a decimal number from 0 to 15 and returns the corresponding hex digit."""
     return hex(n)[2:]
+
 
 def get_hex_pair():
     """Returns a pair of hex digits as a string like: '5f'."""
     x = str(dec_to_hex(randint(0, 15)))
     y = str(dec_to_hex(randint(0, 15)))
     return x + y
+
 
 def generate_mac():
     """Returns a randomly generated MAC address.
@@ -28,13 +31,29 @@ def generate_mac():
     mac_address = ':'.join([get_hex_pair() for _ in range(6)])
     return mac_address
 
+
 def get_mac():
+    """Gets the current MAC address."""
     pass
+
 
 def set_mac(address):
+    """Sets the MAC address."""
     pass
 
-if __name__ == '__main__':
-    set_wifi('wlan0', 'down')
 
+def main():
+    """Runs the procedures to change the MAC address."""
+    print('Turning off the wireless interface: wlan0.')
+    set_wifi('wlan0', 'down')
+    print('Finished turning off the wireless interface: wlan0.')
+
+
+    print('Turning on the wireless interface: wlan0.')
     set_wifi('wlan0', 'up')
+    print('Finished turning on the wireless interface: wlan0.')
+
+
+if __name__ == '__main__':
+    main()
+
