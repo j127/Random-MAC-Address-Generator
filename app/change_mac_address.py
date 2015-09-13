@@ -34,6 +34,7 @@ def get_mac():
 def set_mac(address):
     pass
 
-set_wifi('wlan0', 'down')
+if __name__ == '__main__':
+    set_wifi('wlan0', 'down')
 
-set_wifi('wlan0', 'up')
+    set_wifi('wlan0', 'up')
