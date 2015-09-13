@@ -3,7 +3,7 @@ from subprocess import call
 
 
 def set_wifi(network_interface, status):
-    """Turns off the wifi.
+    """Turns the wifi on or off.
     
     Takes a string like 'wlan0' and a status like 'up' or 'down'.
     """
@@ -12,7 +12,7 @@ def set_wifi(network_interface, status):
 
 def dec_to_hex(n):
     """Takes a decimal number from 0 to 15 and returns the corresponding hex digit."""
-    return(hex(n)[2:])
+    return hex(n)[2:]
 
 def get_hex_pair():
     """Returns a pair of hex digits as a string like: '5f'."""
